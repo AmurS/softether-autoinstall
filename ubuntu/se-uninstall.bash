@@ -19,7 +19,7 @@ rm -rf /opt/vpnserver > /dev/null 2>&1
 printf "\nDone. Do you want to download and run the softether-autoinstall script? (e.g. doing an upgrade?) [y/N]\n\b"
 read answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-  wget -O se-install https://raw.githubusercontent.com/icoexist/softether-autoinstall/master/ubuntu/16.04/se-install-ubuntu.bash && chmod 770 se-install && ./se-install
+  wget -O se-install https://raw.githubusercontent.com/AmurS/softether-autoinstall/master/ubuntu/16.04/se-install-ubuntu.bash && chmod 770 se-install && ./se-install
 else
   printf "\nAlright, we're done here!\n\b"
 fi
