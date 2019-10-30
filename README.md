@@ -23,7 +23,7 @@ To get started, all you have to do is copy/paste the provided code for your OS. 
 ## Supported Operating Systems (64-bit only)
 #### Ubuntu 16.04 LTS +
 ```bash
-wget -O se-install https://raw.githubusercontent.com/icoexist/softether-autoinstall/master/ubuntu/se-install-ubuntu.bash && chmod +x se-install && ./se-install
+wget -O se-install https://raw.githubusercontent.com/AmurS/softether-autoinstall/master/ubuntu/se-install-ubuntu.bash && chmod +x se-install && ./se-install
 ```
 
 #### CentOS 7 (Currently depreciated, no longer in development)
