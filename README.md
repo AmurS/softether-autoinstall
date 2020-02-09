@@ -1,24 +1,26 @@
 # SoftEther Autoinstaller
+Please check the original softether-autoinstall by icoexist [here](https://github.com/icoexist/softether-autoinstall).
+
 
 This is my SoftEther autoinstaller. This script will *hopefully* make your life a little easier. I have not made **any** modifications to the SoftEther VPN Project code at all, this script simply downloads the latest build and compiles it for use on your supported system.
 
-To get started, all you have to do is copy/paste the provided code for your OS. The script will handle everything else for you. Refer to the [Quick Start Guide](https://github.com/icoexist/softether-autoinstall#quick-start-guide) if you need to get set up quickly. Also refer to the [Commands List](https://github.com/icoexist/softether-autoinstall#commands-list) should you need them.
+To get started, all you have to do is copy/paste the provided code for your OS. The script will handle everything else for you. Refer to the [Quick Start Guide](https://github.com/AmurS/softether-autoinstall#quick-start-guide) if you need to get set up quickly. Also refer to the [Commands List](https://github.com/AmurS/softether-autoinstall#commands-list) should you need them.
 
 ### Install & Configure
-* [Supported Operating Systems](https://github.com/icoexist/softether-autoinstall#supported-operating-systems-64-bit-only)     
-* [Open Ports for SoftEther VPN](https://github.com/icoexist/softether-autoinstall#open-ports-for-softether-vpn)
-* [Using Local Bridge on SoftEther VPN](https://github.com/icoexist/softether-autoinstall#Using-Local-Bridge-Setting-on-SoftEther-VPN)
+* [Supported Operating Systems](https://github.com/AmurS/softether-autoinstall#supported-operating-systems-64-bit-only)     
+* [Open Ports for SoftEther VPN](https://github.com/AmurS/softether-autoinstall#open-ports-for-softether-vpn)
+* [Using Local Bridge on SoftEther VPN](https://github.com/AmurS/softether-autoinstall#Using-Local-Bridge-Setting-on-SoftEther-VPN)
 
 ### Uninstall
-* [Uninstall Script](https://github.com/icoexist/softether-autoinstall#uninstall-se-vpn-server-ubuntu-only)
+* [Uninstall Script](https://github.com/AmurS/softether-autoinstall#uninstall-se-vpn-server-ubuntu-only)
 
 ### Configure SoftEther VPN Server
-* [Quick Start Guide](https://github.com/icoexist/softether-autoinstall#quick-start-guide)   
-* [Other Options](https://github.com/icoexist/softether-autoinstall#other-options)   
-* [Commands List](https://github.com/icoexist/softether-autoinstall#commands-list)   
+* [Quick Start Guide](https://github.com/AmurS/softether-autoinstall#quick-start-guide)   
+* [Other Options](https://github.com/AmurS/softether-autoinstall#other-options)   
+* [Commands List](https://github.com/AmurS/softether-autoinstall#commands-list)   
 
 ### Copyright & Credit
-* [Information](https://github.com/icoexist/softether-autoinstall#copyright--credit-1)
+* [Information](https://github.com/AmurS/softether-autoinstall#copyright--credit-1)
 
 ## Supported Operating Systems (64-bit only)
 #### Ubuntu 16.04 LTS +
@@ -28,7 +30,7 @@ wget -O se-install https://raw.githubusercontent.com/AmurS/softether-autoinstall
 
 #### CentOS 7 (Currently depreciated, no longer in development)
 ```bash
-curl -o se-install https://raw.githubusercontent.com/icoexist/softether-autoinstall/master/centos/x64/se-install-centos.bash && chmod 770 se-install && ./se-install
+curl -o se-install https://raw.githubusercontent.com/AmurS/softether-autoinstall/master/centos/x64/se-install-centos.bash && chmod 770 se-install && ./se-install
 ```
 ## Open Ports for SoftEther VPN
 ### Ubuntu
@@ -46,7 +48,7 @@ By default, the IP addresses handed out by dnsmasq will be 10.42.10.10 - 10.42.1
 ### Installation (Ubuntu)
 There's two methods of doing this. If you've already set up the SoftEther VPN Server, use the script below.
 ``` bash
-wget -O se-install https://raw.githubusercontent.com/icoexist/softether-autoinstall/master/ubuntu/se-install-ubuntu.bash && chmod +x se-install && ./se-install
+wget -O se-install https://raw.githubusercontent.com/AmurS/softether-autoinstall/master/ubuntu/se-install-ubuntu.bash && chmod +x se-install && ./se-install
 ```
 
 If you are just now installing SoftEther VPN Server, then select option 1 when asked "Are you going to use the bridge option on the VPN server?".
@@ -95,7 +97,7 @@ Check out the forum post [here](https://forum.icoexist.io/t/how-to-use-softether
 ## Uninstall SE-VPN Server [Ubuntu Only]
 As of now, this bash script will only work with Ubuntu due to the use of `update-rc.d`.
 ```
-wget -O se-uninstall https://raw.githubusercontent.com/icoexist/softether-autoinstall/master/ubuntu/se-uninstall.bash && chmod 770 se-uninstall && ./se-uninstall
+wget -O se-uninstall https://raw.githubusercontent.com/AmurS/softether-autoinstall/master/ubuntu/se-uninstall.bash && chmod 770 se-uninstall && ./se-uninstall
 ```
 
 ## Configure SoftEther
@@ -364,6 +366,7 @@ The SoftEther VPN Project is managed by Daiyuu Nobori, the creator and owner of 
 The SoftEther VPN Developer branch is located here: https://github.com/SoftEtherVPN/SoftEtherVPN
 
 I have not modified the code of the SoftEther VPN Project itself. I simply provide an installer that will make your life *just a little easier*.
+The original softether-autoinstall by icoexist is here : https://github.com/icoexist/softether-autoinstall
 
 For reference, their copyright statement is below.
 
