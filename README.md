@@ -82,7 +82,7 @@ Now we must enable this new option by issuing the following command:
 `sysctl --system`
 
 Now we need to add a POSTROUTING rule to iptables to correctly route traffic and enable NAT. Please replace [YOUR VPS IP ADDRESS] with the public IP address of your server.
-`iptables -t nat -A POSTROUTING -s 10.42.10.0/24 -j SNAT --to-source [YOUR VPS IP ADDRESS]`
+`iptables -t nat -A POSTROUTING -s 192.168.7.20/24 -j SNAT --to-source [YOUR VPS IP ADDRESS]`
 
 This rule will exist until the next system reboot, so to keep it persistent we will install iptables-persistent
 `apt install iptables-persistent`
