@@ -75,9 +75,26 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Yes")
-        apt install -y dnsmasq
-        wget -O dnsmasq.conf https://raw.githubusercontent.com/AmurS/softether-autoinstall/master/dnsmasq.conf
-        rm /etc/dnsmasq.conf && mv dnsmasq.conf /etc/dnsmasq.conf
+        PS3='Are you going to use custom DNS? If unsure, select No.'
+        optionsdns=("Yes" "No")
+        select opt in "${optionsdns[@]}"
+        do
+            case $opt in
+                "Yes")
+                apt install -y dnsmasq
+                wget -O dnsmasq.conf https://raw.githubusercontent.com/AmurS/softether-autoinstall/master/dnsmasqdns.conf
+                rm /etc/dnsmasq.conf && mv dnsmasqdns.conf /etc/dnsmasq.conf
+                break
+                    ;;
+                "No")
+                apt install -y dnsmasq
+                wget -O dnsmasq.conf https://raw.githubusercontent.com/AmurS/softether-autoinstall/master/dnsmasq.conf
+                rm /etc/dnsmasq.conf && mv dnsmasq.conf /etc/dnsmasq.conf
+                break
+                    ;;
+                *) echo "invalid option $REPLY";;
+            esac
+        done
         wget -O vpnserver-init-bridge https://raw.githubusercontent.com/AmurS/softether-autoinstall/master/vpnserver-init-bridge > /dev/null 2>&1
         mv vpnserver-init-bridge /etc/init.d/vpnserver
         chmod 755 /etc/init.d/vpnserver
