@@ -54,21 +54,21 @@ wget -O se-install https://raw.githubusercontent.com/AmurS/softether-autoinstall
 If you are just now installing SoftEther VPN Server, then select option 1 when asked "Are you going to use the bridge option on the VPN server?".
 
 ### SoftEther VPN Server Configuration
-**Disable SecureNAT** [example here](https://upload.icoexist.io/2019/04/2019-04-25_22-46-40.mp4)
+**Disable SecureNAT** 
 - Open the SoftEther VPN Server Management Utility
 - Connect to your VPN server
 - Select the VPN hub (or whatever hub you use on the VPN server) and click “Manage Virtual Hub”
 - Click “Virtual NAT And Virtual DHCP Server (SecureNAT)”
 - Click Disable, then exit to main configuration screen
 
-**Create Local Bridge** [example here](https://upload.icoexist.io/2019/04/2019-04-25_22-49-08.mp4)
+**Create Local Bridge** 
 - Click “Local Bridge Setting”
 - Under “New Local Bridge Definition” select the VPN hub (or whatever hub you use on the VPN server)
 - Select the “Bridge with New Tap Device”
 - Name the device soft and click “Create Local Bridge”
 - Verify that the new device was create by running ifconfig tap_soft in a SSH terminal session. You should see something like this:
 
-![Output example](https://forum.icoexist.io/uploads/default/original/1X/b20b7e2c67d55a9b75238b53dc62797ee9d7fbb8.png)
+!Output example
 
 ### Enable NAT and enable postrouting
 We need to create a file in /etc/sysctl.d/ to enable ipv4 forwarding. Use the following command to create this file:
@@ -82,7 +82,7 @@ Now we must enable this new option by issuing the following command:
 `sysctl --system`
 
 Now we need to add a POSTROUTING rule to iptables to correctly route traffic and enable NAT. Please replace [YOUR VPS IP ADDRESS] with the public IP address of your server.
-`iptables -t nat -A POSTROUTING -s 192.168.7.20/24 -j SNAT --to-source [YOUR VPS IP ADDRESS]`
+`iptables -t nat -A POSTROUTING -s 192.168.7.0/24 -j SNAT --to-source [YOUR VPS IP ADDRESS]`
 
 This rule will exist until the next system reboot, so to keep it persistent we will install iptables-persistent
 `apt install iptables-persistent`
