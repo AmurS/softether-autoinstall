@@ -2,7 +2,7 @@
 Please check the original softether-autoinstall by icoexist [here](https://github.com/icoexist/softether-autoinstall).
 
 
-This is my SoftEther autoinstaller. This script will *hopefully* make your life a little easier. I have not made **any** modifications to the SoftEther VPN Project code at all, this script simply downloads the latest build and compiles it for use on your supported system.
+This is icoexist SoftEther autoinstaller that I modified to fulfill my own need, incase you need the original autoinstaller please visit the original [dev](https://github.com/icoexist/softether-autoinstall). This script will *hopefully* make your life a little easier. I have not made **any** modifications to the SoftEther VPN Project code at all, this script simply downloads the latest build and compiles it for use on your supported system.
 
 To get started, all you have to do is copy/paste the provided code for your OS. The script will handle everything else for you. Refer to the [Quick Start Guide](https://github.com/AmurS/softether-autoinstall#quick-start-guide) if you need to get set up quickly. Also refer to the [Commands List](https://github.com/AmurS/softether-autoinstall#commands-list) should you need them.
 
@@ -34,16 +34,35 @@ curl -o se-install https://raw.githubusercontent.com/AmurS/softether-autoinstall
 ```
 ## Open Ports for SoftEther VPN
 ### Ubuntu
-In terminal, execute the following: `ufw allow 443,1194,5555/tcp && ufw allow 500,1701,4500/udp`    
+In terminal, execute the following: 
+```
+ufw allow 443,1194,5555/tcp && ufw allow 500,1701,4500/udp
+```   
 
 Please make sure you allow the port you use for SSH, otherwise you risk blocking inbound SSH connections. You can use `ufw allow ssh` or if you have set a custom port, use `ufw enable x/tcp` where `x = port`. For instance, if I use port `2222` for SSH, I'll use `ufw allow 2222/tcp`.    
 
-Now enable UFW with `ufw enable`.
+Now enable UFW with 
+```
+ufw enable
+```
 
 ## Using Local Bridge Setting on SoftEther VPN
 The Local Bridge Setting on SoftEther VPN allows you to run your own DHCP server on the VPN. This has much better performance than the built-in SecureNAT function. For instance, you can expect your Internet throughput speeds to increase by 100+ mbps (if your connection can handle it). It is important that you manually configure SoftEther VPN to use the new local bridge after setting this up. It will be outlined below.
 
-By default, the IP addresses handed out by dnsmasq will be 10.42.10.10 - 10.42.10.100. The default gateway is 10.42.10.1.
+By default, the IP addresses handed out by dnsmasq will be 192.168.7.20 - 192.168.7.100. The default gateway is 192.168.7.1.
+
+
+## Local Bridge Custon DNS
+If in some case you need to use a local or custom DNS for your VPN. It could be configured manually by adding this line in dnsmasq.conf
+
+```
+dhcp-option=6,192.168.7.3,1.1.1.1,1.0.0.1
+```
+
+192.168.7.3 (local DNS)
+1.1.1.1 (Cloudflare DNS)
+1.0.0.1 (Cloudflare DNS)
+
 
 ### Installation (Ubuntu)
 There's two methods of doing this. If you've already set up the SoftEther VPN Server, use the script below.
@@ -72,9 +91,13 @@ If you are just now installing SoftEther VPN Server, then select option 1 when a
 
 ### Enable NAT and enable postrouting
 We need to create a file in /etc/sysctl.d/ to enable ipv4 forwarding. Use the following command to create this file:
-`nano /etc/sysctl.d/ipv4_forwarding.conf`
+```
+nano /etc/sysctl.d/ipv4_forwarding.conf
+```
 and insert the following into the file:
-`net.ipv4.ip_forward = 1`
+```
+net.ipv4.ip_forward = 1
+```
 
 Again, save and close the file by hitting Ctrl + X then [ENTER].
 
@@ -82,14 +105,20 @@ Now we must enable this new option by issuing the following command:
 `sysctl --system`
 
 Now we need to add a POSTROUTING rule to iptables to correctly route traffic and enable NAT. Please replace [YOUR VPS IP ADDRESS] with the public IP address of your server.
-`iptables -t nat -A POSTROUTING -s 192.168.7.0/24 -j SNAT --to-source [YOUR VPS IP ADDRESS]`
+```
+iptables -t nat -A POSTROUTING -s 192.168.7.0/24 -j SNAT --to-source [YOUR VPS IP ADDRESS]
+```
 
 This rule will exist until the next system reboot, so to keep it persistent we will install iptables-persistent
-`apt install iptables-persistent`
+```
+apt install iptables-persistent
+```
 
 ### Restart dnsmasq and SoftEther VPN Server
 If everything above was done correctly, all we need to do now is to restart the DHCP server and the running SoftEther VPN server.
-`/etc/init.d/dnsmasq restart && /etc/init.d/vpnserver restart`
+```
+/etc/init.d/dnsmasq restart && /etc/init.d/vpnserver restart
+```
 
 ### Need help?
 Check out the forum post [here](https://forum.icoexist.io/t/how-to-use-softether-vpn-with-local-bridge-ubuntu/91) for a more in-depth explanation. If you can't seem to get your server to work at all, try running the install script again so you get a fresh start.
