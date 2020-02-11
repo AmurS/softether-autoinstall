@@ -2,7 +2,8 @@
 Please check the original softether-autoinstall by icoexist [here](https://github.com/icoexist/softether-autoinstall).
 
 
-This is icoexist SoftEther autoinstaller that I modified to fulfill my own need, incase you need the original autoinstaller please visit the original [dev](https://github.com/icoexist/softether-autoinstall). This script will *hopefully* make your life a little easier. I have not made **any** modifications to the SoftEther VPN Project code at all, this script simply downloads the latest build and compiles it for use on your supported system.
+This is icoexist SoftEther autoinstaller that I modified to fulfill my own need, in case you need the original autoinstaller please visit the original [dev](https://github.com/icoexist/softether-autoinstall). 
+This script will *hopefully* make your life a little easier. I have not made **any** modifications to the SoftEther VPN Project code at all, this script simply downloads the latest build and compiles it for use on your supported system.
 
 To get started, all you have to do is copy/paste the provided code for your OS. The script will handle everything else for you. Refer to the [Quick Start Guide](https://github.com/AmurS/softether-autoinstall#quick-start-guide) if you need to get set up quickly. Also refer to the [Commands List](https://github.com/AmurS/softether-autoinstall#commands-list) should you need them.
 
