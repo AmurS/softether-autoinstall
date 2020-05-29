@@ -82,7 +82,7 @@ do
             case $opt in
                 "Yes")
                 apt install -y dnsmasq
-                wget -O dnsmasq.conf https://raw.githubusercontent.com/AmurS/softether-autoinstall/master/dnsmasqdns.conf
+                wget -O dnsmasqdns.conf https://raw.githubusercontent.com/AmurS/softether-autoinstall/master/dnsmasqdns.conf
                 rm /etc/dnsmasq.conf && mv dnsmasqdns.conf /etc/dnsmasq.conf
                 break
                     ;;
