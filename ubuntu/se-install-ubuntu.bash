@@ -60,10 +60,10 @@ if [ "" == "$PKG_OK" ]; then
 fi
 
 # Download SoftEther | Version 4.32 | Build 9731
-printf "\nDownloading release: ${RED}4.34${NC} | Build ${RED}9745${NC}\n\n"
-wget https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.34-9745-beta/softether-vpnserver-v4.34-9745-beta-2020.04.05-linux-x64-64bit.tar.gz
+printf "\nDownloading release: ${RED}4.29${NC} | Build ${RED}9680${NC}\n\n"
+wget https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.29-9680-rtm/softether-vpnserver-v4.29-9680-rtm-2019.02.28-linux-x64-64bit.tar.gz
 echo "Extracting..."
-tar -xzf softether-vpnserver-v4.34-9745-beta-2020.04.05-linux-x64-64bit.tar.gz
+tar -xzf softether-vpnserver-v4.29-9680-rtm-2019.02.28-linux-x64-64bit.tar.gz
 cd vpnserver
 echo $'1\n1\n1' | make &&
 cd /tmp/softether-autoinstall && mv vpnserver/ /opt
